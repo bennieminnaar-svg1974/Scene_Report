@@ -24,6 +24,7 @@ html, body {
 }
 
 h1 { font-size: 1.4em; margin: 8px 0 16px; }
+.version-tag { font-size: 0.55em; font-weight: normal; color: #888; vertical-align: middle; }
 h2 { font-size: 1.1em; margin-top: 24px; }
 
 .section-heading {

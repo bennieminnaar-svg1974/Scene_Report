@@ -46,6 +46,7 @@ const SCENE_FIELDS = [
 
 const VERIFICATION_FIELDS = [
   { name: "source_device_imaged_by", label: "Source Device Imaged By", type: "text", hint: "Initials & Surname" },
+  { name: "source_device_imaged_by_signature", label: "Signature — Source Device Imaged By", type: "signature" },
   { name: "hashes_verified_by", label: "Hashes Verified By", type: "text", hint: "Initials & Surname" },
   { name: "person_present", label: "Person Present During Acquisition", type: "text" },
   { name: "person_present_date", label: "Date", type: "date" },

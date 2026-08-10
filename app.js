@@ -1,6 +1,8 @@
 /* Scene Capture — fully offline, client-side only. No network calls at
    runtime. State lives in IndexedDB (db.js); fields.js defines the forms. */
 
+const APP_VERSION = "1.1.0";
+
 const appEl = document.getElementById("app");
 let current = null; // in-memory capture object being edited
 let signaturePads = {}; // fieldName -> pad instance
@@ -93,7 +95,7 @@ function renderHome() {
     appEl.innerHTML = "";
     appEl.appendChild(el(`
       <div>
-        <h1>Scene Capture</h1>
+        <h1>Scene Capture <small class="version-tag">v${APP_VERSION}</small></h1>
         ${unexported.length ? `
         <div class="warning-banner">
           <strong>${unexported.length} unexported draft${unexported.length > 1 ? "s" : ""}.</strong>
