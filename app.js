@@ -1,7 +1,7 @@
 /* Scene Capture — fully offline, client-side only. No network calls at
    runtime. State lives in IndexedDB (db.js); fields.js defines the forms. */
 
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.2.0";
 
 const appEl = document.getElementById("app");
 let current = null; // in-memory capture object being edited
@@ -106,6 +106,7 @@ function renderHome() {
           <button class="btn" data-action="new" data-type="general_image">+ General Image</button>
           <button class="btn" data-action="new" data-type="mobile">+ Mobile</button>
           <button class="btn" data-action="new" data-type="storage_media">+ Storage Media</button>
+          <button class="btn" data-action="new" data-type="email_profile">+ E-Mail/User Profile</button>
         </div>
         <h2>Captures</h2>
         <div id="capture-list"></div>

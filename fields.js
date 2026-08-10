@@ -23,6 +23,7 @@ const CHOICES = {
   SIM_CARD_EXTRACTION: ["Yes", "No", "N/A"],
   MEMORY_CARD_TYPE: ["SD", "Mini SD", "Micro SD", "N/A"],
   MEMORY_CARD_ACQ_PROGRAM: ["FTK Imager", "Cellebrite", "N/A"],
+  TYPE_OF_EMAIL_ACCOUNT: ["Exchange", "Mimecast", "Office 365"],
 };
 
 const CASE_FIELDS = [
@@ -309,6 +310,76 @@ const REPORT_CONFIG = {
           { name: "notes_on_acquisition", label: "Notes on Acquisition", type: "select", options: CHOICES.NOTES_ON_ACQUISITION },
           { name: "imager_version", label: "Imager Version", type: "select", options: CHOICES.PROGRAM_OPTIONS_STORAGE },
           { name: "live_distro", label: "Live Distro", type: "select", options: CHOICES.PROGRAM_OPTIONS_STORAGE },
+          { name: "other_specify", label: "Other Specify", type: "text" },
+        ],
+      },
+      { title: "Verification", fields: VERIFICATION_FIELDS },
+      { title: "Additional Scene Notes", fields: NOTES_FIELD },
+    ],
+  },
+
+  email_profile: {
+    label: "E-Mail/User Profile",
+    evidenceHint: "e.g. DFL139_XOLANI_DHLAMINI_EMAIL1",
+    sections: [
+      {
+        title: "Device Details",
+        fields: [
+          { name: "type_of_devices_disks", label: "Type of Device(s) / Disk(s)", type: "text", hint: "Server, Backup, USB, etc" },
+        ],
+      },
+      {
+        title: "Description-Details of E-Mail/User Profile",
+        fields: [
+          { name: "email_profile_1_name", label: "E-Mail / User Profile Name (1)", type: "text" },
+          { name: "email_profile_1_md5", label: "MD5 Hash (1)", type: "text" },
+          { name: "email_profile_1_sha1", label: "SHA1 Hash (1)", type: "text" },
+          { name: "email_profile_2_name", label: "E-Mail / User Profile Name (2)", type: "text" },
+          { name: "email_profile_2_md5", label: "MD5 Hash (2)", type: "text" },
+          { name: "email_profile_2_sha1", label: "SHA1 Hash (2)", type: "text" },
+        ],
+      },
+      {
+        title: "Description-Details of Seized/Imaged Device(s)/Disks",
+        fields: [
+          { name: "source_type", label: "Type", type: "select", options: CHOICES.HDD_TYPE, hint: "Sata, SSD, USB, etc" },
+          { name: "source_manufacturer", label: "Manufacturer", type: "text", hint: "Seagate, Sandisk, etc" },
+          { name: "source_size", label: "Size", type: "text", hint: "GB/TB" },
+          { name: "source_model_nr", label: "Model Nr", type: "text" },
+          { name: "source_visible_sn", label: "Visible SN", type: "text" },
+          { name: "source_software_sn", label: "Software SN", type: "text" },
+        ],
+      },
+      {
+        title: "Target (Forensic) Disks",
+        fields: [
+          { name: "target1_type", label: "Target 1 Type", type: "select", options: CHOICES.HDD_TYPE },
+          { name: "target1_manufacturer", label: "Target 1 Manufacturer", type: "text" },
+          { name: "target1_size", label: "Target 1 Size", type: "text", hint: "GB/TB" },
+          { name: "target1_model_no", label: "Target 1 Model Nr", type: "text" },
+          { name: "target1_serial_no", label: "Target 1 Serial Nr", type: "text" },
+          { name: "target2_type", label: "Target 2 Type", type: "select", options: CHOICES.HDD_TYPE },
+          { name: "target2_manufacturer", label: "Target 2 Manufacturer", type: "text" },
+          { name: "target2_size", label: "Target 2 Size", type: "text", hint: "GB/TB" },
+          { name: "target2_model_no", label: "Target 2 Model Nr", type: "text" },
+          { name: "target2_serial_no", label: "Target 2 Serial Nr", type: "text" },
+        ],
+      },
+      {
+        title: "Acquisition Information (fill in later if not yet known)",
+        fields: [
+          { name: "acquisition_start_date", label: "Acquisition Start Date", type: "date" },
+          { name: "acquisition_start_time", label: "Start Time", type: "time" },
+          { name: "acquisition_end_date", label: "Acquisition End Date", type: "date" },
+          { name: "acquisition_end_time", label: "End Time", type: "time" },
+          { name: "extent_of_acquisition", label: "Extent of Acquisition", type: "select", options: CHOICES.EXTENT_OF_ACQUISITION_STORAGE },
+          { name: "method_used", label: "Method Used", type: "select", options: CHOICES.METHOD_USED },
+          { name: "type_of_email_account", label: "Type of E-Mail Acc", type: "select", options: CHOICES.TYPE_OF_EMAIL_ACCOUNT },
+          { name: "online_email", label: "Online E-Mail", type: "text", hint: "Yahoo, Hotmail, Gmail, Live, etc" },
+          { name: "md5_hash", label: "MD5 Hash", type: "text" },
+          { name: "sha1_hash", label: "SHA1 Hash", type: "text" },
+          { name: "notes_on_acquisition", label: "Notes on Acquisition", type: "select", options: CHOICES.NOTES_ON_ACQUISITION },
+          { name: "imager_version", label: "Imager Version", type: "select", options: CHOICES.PROGRAM_OPTIONS_STORAGE },
           { name: "other_specify", label: "Other Specify", type: "text" },
         ],
       },
