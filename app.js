@@ -1,7 +1,7 @@
 /* Scene Capture — fully offline, client-side only. No network calls at
    runtime. State lives in IndexedDB (db.js); fields.js defines the forms. */
 
-const APP_VERSION = "1.2.0";
+const APP_VERSION = "1.2.1";
 
 const appEl = document.getElementById("app");
 let current = null; // in-memory capture object being edited
@@ -241,7 +241,8 @@ function renderForm() {
     <div>
       <h3 class="section-heading">Photographs</h3>
       <div class="photo-thumbs" id="photo-thumbs"></div>
-      <input type="file" id="photo-input" accept="image/*" capture="environment" multiple>
+      <label for="photo-input" class="btn photo-add-btn">+ Take / Add Photo</label>
+      <input type="file" id="photo-input" accept="image/*" capture="environment" multiple class="visually-hidden-input">
       <p class="hint">Photos are automatically resized to keep the export file a manageable size.</p>
     </div>
   `);
