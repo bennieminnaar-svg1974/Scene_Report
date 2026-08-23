@@ -18,9 +18,10 @@ const CHOICES = {
   MOBILE_ACCESSORIES: ["Charger", "Case", "Data Cable", "None"],
   MOBILE_CONDITION: ["New", "Used", "Screen Damaged"],
   MOBILE_ACQ_PROGRAM: ["Cellebrite", "MOBILEdit", "Oxygen", "SPF", "XRY", "N/A"],
-  MOBILE_EXTENT: ["Physical", "Logical", "File System", "APK Downgrade", "MOBILEdit Screenshots", "WhatsApp Extraction", "N/A"],
+  MOBILE_EXTENT: ["Physical", "Logical", "File System", "APK Downgrade", "MOBILEdit Screenshots", "WhatsApp Extraction", "Crypt14/Crypt15 export", "N/A"],
   DESTINATION_TYPE: ["SATA", "USB"],
   SIM_CARD_EXTRACTION: ["Yes", "No", "N/A"],
+  WHATSAPP_CRYPT15_EXTRACTED: ["Yes", "No", "N/A"],
   MEMORY_CARD_TYPE: ["SD", "Mini SD", "Micro SD", "N/A"],
   MEMORY_CARD_ACQ_PROGRAM: ["FTK Imager", "Cellebrite", "N/A"],
   TYPE_OF_EMAIL_ACCOUNT: ["Exchange", "Mimecast", "Office 365"],
@@ -49,12 +50,7 @@ const VERIFICATION_FIELDS = [
   { name: "source_device_imaged_by", label: "Source Device Imaged By", type: "text", hint: "Initials & Surname" },
   { name: "source_device_imaged_by_signature", label: "Signature — Source Device Imaged By", type: "signature" },
   { name: "hashes_verified_by", label: "Hashes Verified By", type: "text", hint: "Initials & Surname" },
-  { name: "person_present", label: "Person Present During Acquisition", type: "text" },
-  { name: "person_present_date", label: "Date", type: "date" },
-  { name: "person_present_signature", label: "Signature — Person Present", type: "signature" },
-  { name: "person_inspecting", label: "Person Inspecting (post-acquisition)", type: "text" },
-  { name: "person_inspecting_date", label: "Date", type: "date" },
-  { name: "person_inspecting_signature", label: "Signature — Person Inspecting", type: "signature" },
+  { name: "hashes_verified_by_signature", label: "Signature — Hashes Verified By", type: "signature" },
 ];
 
 const NOTES_FIELD = [{ name: "additional_scene_notes", label: "Additional Scene Notes", type: "textarea" }];
@@ -175,6 +171,8 @@ const REPORT_CONFIG = {
           { name: "extent_of_acquisition_2", label: "Extent of Acquisition 2", type: "select", options: CHOICES.MOBILE_EXTENT },
           { name: "acquisition_program_3", label: "Program 3", type: "select", options: CHOICES.MOBILE_ACQ_PROGRAM },
           { name: "extent_of_acquisition_3", label: "Extent of Acquisition 3", type: "select", options: CHOICES.MOBILE_EXTENT },
+          { name: "acquisition_program_4", label: "Program 4", type: "select", options: CHOICES.MOBILE_ACQ_PROGRAM },
+          { name: "extent_of_acquisition_4", label: "Extent of Acquisition 4", type: "select", options: CHOICES.MOBILE_EXTENT },
           { name: "other_1", label: "Other", type: "text" },
           { name: "other_2", label: "Other", type: "text" },
         ],
@@ -231,6 +229,15 @@ const REPORT_CONFIG = {
           { name: "extraction3_end_time", label: "End Time", type: "time" },
           { name: "extraction3_md5_hash", label: "MD5 Hash", type: "text" },
           { name: "extraction3_sha256_hash", label: "SHA1 Hash", type: "text" },
+        ],
+      },
+      {
+        title: "WhatsApp Database Extraction",
+        fields: [
+          { name: "whatsapp_crypt15_extracted", label: "Crypt15 Database Extracted", type: "select", options: CHOICES.WHATSAPP_CRYPT15_EXTRACTED },
+          { name: "whatsapp_encryption_key", label: "End-to-End Encryption Key", type: "text", hint: "64-digit key" },
+          { name: "whatsapp_md5_hash", label: "MD5 Hash", type: "text" },
+          { name: "whatsapp_sha1_hash", label: "SHA1 Hash", type: "text" },
         ],
       },
       {
