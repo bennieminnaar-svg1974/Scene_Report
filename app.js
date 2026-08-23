@@ -1,7 +1,7 @@
 /* Scene Capture — fully offline, client-side only. No network calls at
    runtime. State lives in IndexedDB (db.js); fields.js defines the forms. */
 
-const APP_VERSION = "1.2.1";
+const APP_VERSION = "1.3.0";
 
 const appEl = document.getElementById("app");
 let current = null; // in-memory capture object being edited

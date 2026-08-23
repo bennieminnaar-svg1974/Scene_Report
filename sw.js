@@ -2,7 +2,7 @@
    (IndexedDB + file export only), so this only needs to guarantee the app
    shell itself loads with no connectivity after the first successful visit. */
 
-const CACHE_NAME = "scene-capture-v4";
+const CACHE_NAME = "scene-capture-v5";
 const SHELL_FILES = [
   "./",
   "./index.html",
